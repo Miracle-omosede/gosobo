@@ -44,7 +44,7 @@ const DesktopMenu = ({ menu }) => {
       <span className="flex-center gap-2 cursor-pointer px-4 py-2 rounded-md hover:bg-dark-cyan hover:text-white font-dm-sans font-medium transition duration-300 ease-in-out">
         {menu.name}
         {hasSubMenu && (
-          <ChevronDown className="mt-[0.6px] group-hover/link:rotate-180 duration-200" />
+          <ChevronDown className="mt-[0.6px] size-3 group-hover/link:rotate-180 duration-200" />
         )}
       </span>
 
@@ -77,7 +77,7 @@ const DesktopMenu = ({ menu }) => {
                   </span>
                   </h6>
 
-                  <hr className='bg-dark-cyan border-custom-yellow my-5'/>
+                  <hr className=' border-gray-600/25 my-5'/>
 
                   <div className="flex flex-col gap-3">
                     {sub.items.map((item, j) => (
