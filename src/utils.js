@@ -10,6 +10,7 @@ export const Menus = [
   },
   {
     name: "Bookstore",
+    gridCols: 4,
     subMenuHeading: [
         { name: "Books", icon: BookOpenText, desc: "Browse a wide collection of digital and print books" },
         { name: "Self-Publish", icon: Pencil, desc: "Empower your writing with publishing services" },
@@ -60,18 +61,17 @@ export const Menus = [
         ],
       },
     ],
-    gridCols: 4,
     icon: BookOpenText,
   },
   {
     name: "Resources",
+    gridCols: 1,
     subMenuHeading: [],
     subMenu: [
       { name: "Blogs & Articles", desc: "Insights and news", icon: Newspaper },
       { name: "Tutorials & Videos", desc: "Learn and grow", icon: Video },
       { name: "Free Tools", desc: "Handy resources", icon: PencilRuler },
     ],
-    gridCols: 1,
     icon: FolderSearch,
   },
   {

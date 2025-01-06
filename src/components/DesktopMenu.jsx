@@ -34,6 +34,14 @@ const DesktopMenu = ({ menu }) => {
 
   const hasSubMenu = menu?.subMenu?.length > 0;
 
+   // Determine grid classes based on menu name
+   const gridClass =
+   menu.name === 'Bookstore'
+     ? 'grid-cols-4'
+     : menu.name === 'Resources'
+     ? 'grid-cols-1'
+     : 'grid-cols-1'
+
   return (
     <motion.li
       className="group/link relative"
@@ -59,7 +67,11 @@ const DesktopMenu = ({ menu }) => {
             width: menu.gridCols === 4 ? '900px' : '400px',
           }}
         >
-          <div className={`grid gap-6 grid-cols-${menu.gridCols || 1}`}>
+          <div className={`grid gap-6 ${menu.name === 'Bookstore'
+      ? 'grid-cols-4'
+      : menu.name === 'Resources'
+      ? 'grid-cols-1'
+      : 'grid-cols-1'}`}>
             {/* Bookstore Dropdown */}
             {menu.name === 'Bookstore' &&
               menu.subMenu.map((sub, i) => (
