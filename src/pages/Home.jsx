@@ -4,6 +4,7 @@ import Hero from "../section/Hero";
 import Services from "../section/Services";
 import Lenis from "lenis";
 import Construction from "../section/Construction";
+import Competiton from "./Competiton";
 
 const Home = () => {
 
@@ -19,10 +20,11 @@ const Home = () => {
   }, []);
   return (
     <main>
-      <Navbar/>
+      <Competiton/>
+      {/* <Navbar/>
       <Hero/>
       <Services/>
-      <Construction/>
+      <Construction/> */}
     </main>
   )
 };
