@@ -6,10 +6,10 @@ const Competiton = () => {
   return (
     <div className="bg-black w-full min-h-screen">
       {/* Navbar */}
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Hero Section */}
-      <div className="relative md:h-[400px] h-[200px] w-full mt-[4rem]">
+      <div className="relative md:h-[400px] h-[200px] w-full ">
         {/* Background Image */}
         <img
           src={competition}
@@ -52,9 +52,9 @@ const Competiton = () => {
               <button className="bg-dark-cyan text-white px-5 py-2 rounded-lg hover:bg-teal-600 transition duration-300">
                 Sign Up
               </button>
-              <button className="bg-transparent border border-gray-500 text-gray-300 px-5 py-2 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
+              {/* <button className="bg-transparent border border-gray-500 text-gray-300 px-5 py-2 rounded-lg hover:bg-gray-700 hover:text-white transition duration-300">
                 Learn More
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
