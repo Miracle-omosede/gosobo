@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Hero from "../section/Hero";
 import Services from "../section/Services";
 import Lenis from "lenis";
+import Construction from "../section/Construction";
 
 const Home = () => {
 
@@ -21,6 +22,7 @@ const Home = () => {
       <Navbar/>
       <Hero/>
       <Services/>
+      <Construction/>
     </main>
   )
 };

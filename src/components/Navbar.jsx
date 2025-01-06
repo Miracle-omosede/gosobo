@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronDown, Menu as MenuIcon, X as CloseIcon } from 'lucide-react'; // Icons
 import Logo from '../assets/images/logo.svg';
 import { Menus } from '../utils';
@@ -7,6 +7,7 @@ import DesktopMenu from './DesktopMenu';
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openSubMenuIndex, setOpenSubMenuIndex] = useState(null); // Track which submenu is open
+  const [isScrolled, setIsScrolled] = useState(false); // Track scroll state
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -17,9 +18,25 @@ const Navbar = () => {
     setOpenSubMenuIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10); // Adjust scroll threshold as needed
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div>
-      <header className="h-24 text-[15px] fixed inset-0 flex-center bg-white z-[999] shadow">
+      <header
+        className={`h-24 text-[15px] fixed inset-0 flex-center z-[999] transition-all duration-300 ${
+          isScrolled ? 'bg-white/75 backdrop-blur-md shadow-md' : 'bg-white'
+        }`}
+      >
         <nav className="px-3.5 flex-center-between w-full max-w-7xl mx-auto">
           {/* Logo */}
           <div className="flex-center gap-x-3 z-[999] relative">
@@ -56,13 +73,13 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-24 left-0 w-full bg-white shadow-lg z-50">
+          <div className="lg:hidden absolute top-24 left-0 w-full bg-white shadow-lg z-50 font-dm-sans">
             <ul className="flex flex-col gap-4 p-4">
               {Menus.map((menu, index) => (
                 <li key={menu.menu} className="relative">
                   {/* Main Menu Item */}
                   <div
-                    className="flex justify-between items-center text-gray-800 px-4 py-2 rounded-md hover:bg-gray-100 transition cursor-pointer"
+                    className="flex justify-between items-center text-gray-800 px-4 py-4 rounded-md hover:text-white hover:bg-dark-cyan transition cursor-pointer"
                     onClick={() => toggleSubMenu(index)}
                   >
                     <span>{menu.name}</span>
@@ -79,7 +96,7 @@ const Navbar = () => {
                   {menu.subMenu && openSubMenuIndex === index && (
                     <ul className="mt-2 pl-6">
                       {menu.subMenu.map((sub, i) => (
-                        <li key={i} className="py-1 text-gray-600 hover:text-gray-800">
+                        <li key={i} className="py-3 text-gray-600 hover:text-dark-cyan hover:underline transition">
                           {sub.heading || sub.name}
                         </li>
                       ))}
