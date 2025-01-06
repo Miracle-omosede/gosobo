@@ -19,7 +19,7 @@ const Hero = () => {
             <div className="py-10">
             <h1 className="nevada text-[30px] md:text-[54px] font-bold">Unleash Your <span className="text-custom-yellow">Creativity</span> – Empowering <br/> Writers, Inspiring Readers.</h1>
             <p className="font-dm-sans">
-            Your destination for self-publishing, storytelling, and connecting with <br/> a global community of readers and writers.
+            Your destination for self-publishing, storytelling, and connecting with <br className="md:block hidden" /> a global community of readers and writers.
             </p>
             </div>
             
@@ -31,8 +31,8 @@ const Hero = () => {
 
         {/* photo spreader */}
         <div >
-        <motion.div style={{y}} className="h-[650px] fixed top-[60%] left-0 right-0 z-[-1]">
-            <img src= {Reading} alt="reading" className="absolute object-cover object-[left_31%] h-[inherit] w-full"/>
+        <motion.div style={{y}} className="h-[650px] fixed top-[75%] md:top-[60%] left-0 right-0 z-[-1]">
+            <img src= {Reading} alt="reading" className="absolute object-cover md:object-[left_31%] object-[left_31%, top_20%] h-[inherit] w-full"/>
         </motion.div>
         </div>
       </motion.div>
